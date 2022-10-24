@@ -5,12 +5,12 @@ import 'package:http/http.dart';
 import 'package:movie_db/view_object/api_response.dart';
 
 abstract class ApiService {
-  Future<T> _getData<T>({
-    required Uri uri,
+  Future<T> getData<T>({
+    required String url,
     required T Function(dynamic data) builder,
   }) async {
     try {
-      final response = await get(uri);
+      final response = await get(Uri.parse(url));
       final data = json.decode(response.body);
       switch (response.statusCode) {
         case 200:

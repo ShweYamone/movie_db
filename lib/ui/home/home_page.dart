@@ -40,11 +40,11 @@ class MyHomePage extends ConsumerWidget {
           children: <Widget>[
             popularMovies.when(
               data: (data) => MovieListWidget(
-                  title: 'What\'s Popular', movies: data?.results),
+                  title: 'What\'s Popular', movies: data.results),
               loading: () => const MovieListWidget(
                 isLoading: true,
               ),
-              error: (e, st) => const SizedBox(),
+              error: (e, st) => Text(e.toString()),
             ),
             topRatedMovies.when(
               data: (data) => MovieListWidget(

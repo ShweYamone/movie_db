@@ -47,6 +47,7 @@ class SearchAllMediaNotifier extends StateNotifier<AsyncValue<List<dynamic>>> {
         updateData(result);
       } catch (e) {
         state = AsyncError(e);
+        log(e.toString().replaceAll('Exception: ', ''));
       }
     }
   }
@@ -58,6 +59,7 @@ class SearchAllMediaNotifier extends StateNotifier<AsyncValue<List<dynamic>>> {
         final result = await allMediaRepository.searchAllMedia(queryHolder);
         updateData(result);
       } catch (e) {
+        log(e.toString().replaceAll('Exception: ', ''));
         _isNextLoading = false;
       }
     }

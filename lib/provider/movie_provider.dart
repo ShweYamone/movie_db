@@ -5,7 +5,7 @@ import 'package:movie_db/view_object/movie_pagination.dart';
 
 final moviesRepositoryProvider = Provider((ref) => MovieRepository());
 
-final popularMoviesProvider = FutureProvider<MoviePagination?>((ref) {
+final popularMoviesProvider = FutureProvider<MoviePagination>((ref) {
   // access the provider above
   final repository = ref.watch(moviesRepositoryProvider);
   // use it to return a Future
